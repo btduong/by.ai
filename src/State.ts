@@ -1,3 +1,3 @@
 interface State {
-    execute: void;
+    execute(entity: BaseGameEntity): void;
 }
