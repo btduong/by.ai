@@ -1,4 +1,4 @@
-abstract class BaseGameEntity {
+export abstract class BaseGameEntity {
     private _id: number;
 
     constructor(public id: number) {
@@ -12,7 +12,7 @@ abstract class BaseGameEntity {
     /**
      * All entities must have update();
      */
-    abstract update();
+    abstract update(): void;
 
     getId() {
         return this._id;

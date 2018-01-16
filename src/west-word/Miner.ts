@@ -1,4 +1,7 @@
-class Miner extends BaseGameEntity implements State {
+import { State } from "../State";
+import { BaseGameEntity } from "../BaseEntity"
+
+export class Miner extends BaseGameEntity implements State {
     private currentState: State;
     private location: string;
     private goldCarried: number;
@@ -8,6 +11,8 @@ class Miner extends BaseGameEntity implements State {
 
     constructor(public id: number) {
         super(id);
+        this.location = "at.home";
+        
     }
 
     changeState(state: State) {
@@ -25,10 +30,10 @@ class Miner extends BaseGameEntity implements State {
     }
 
     public get $location(): string {
-		return this.location;
-	}
+        return this.location;
+    }
 
-	public set $location(value: string) {
-		this.location = value;
-	}
+    public set $location(value: string) {
+        this.location = value;
+    }
 }
