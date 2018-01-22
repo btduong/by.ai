@@ -2,7 +2,7 @@ import { State } from "../State";
 import { Location } from "./Location";
 import { BaseGameEntity } from "../BaseEntity";
 import { GoHomeAndSLeepTilRested } from "./GoHomeAndSleepTilRested";
-
+import {StateMachine} from "../StateMachine";
 
 export class Miner extends BaseGameEntity {
     private static MAX_COMFORT_LEVEL = 5;
@@ -10,6 +10,7 @@ export class Miner extends BaseGameEntity {
     private static MAX_THIRST_LEVEL = 5;
     private static MAX_TIREDNESS_THRESHOLD = 5;
 
+    private stateMachine: StateMachine<this>;
     private currentState: State<this>;
     private currentLocation: Location;
     private goldCarried: number;
@@ -24,23 +25,17 @@ export class Miner extends BaseGameEntity {
         this.thirst = 0;
         this.fatigue = 0;
         this.currentLocation = Location.SHACK;
-        this.currentState = GoHomeAndSLeepTilRested.instance();
-
+        this.stateMachine = new StateMachine(this);
+        this.stateMachine.$currentState = GoHomeAndSLeepTilRested.instance();
     }
 
     changeState(newState: State<this>) {
-        if (this.currentState !== null && newState !== null) {
-            this.currentState.exit(this);
-            this.currentState = newState;
-            this.currentState.enter(this);
-        }
+        this.stateMachine.changeState(newState);
     }
 
     update() {
         ++this.thirst;
-        if (this.currentState) {
-            this.currentState.execute(this);
-        }
+        this.stateMachine.update();
     }
 
     public get location(): Location {

@@ -1,6 +1,6 @@
 import { State } from './State';
 
-class StateMachine<T> {
+export class StateMachine<T> {
     private owner: T;
     private currentState: State<T>;
     private previousState: State<T>;
