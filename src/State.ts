@@ -1,7 +1,7 @@
 import { BaseGameEntity } from "./BaseEntity";
 
-export interface State {
-    enter(entity: BaseGameEntity): void;
-    execute(entity: BaseGameEntity): void;
-    exit(entity: BaseGameEntity): void;
+export interface State<T> {
+    enter(entity: T): void;
+    execute(entity: T): void;
+    exit(entity: T): void;
 }

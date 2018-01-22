@@ -5,7 +5,7 @@ import { GoHomeAndSLeepTilRested } from './GoHomeAndSleepTilRested';
 import { EnterMineAndDigForNugget } from './EnterMineAndDigForNugget';
 
 
-export class VisitBankAndDepositGold implements State {
+export class VisitBankAndDepositGold implements State<Miner> {
     public static instance(): VisitBankAndDepositGold {
         return new VisitBankAndDepositGold();
     }

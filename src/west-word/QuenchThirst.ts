@@ -3,7 +3,7 @@ import { Miner } from "./Miner";
 import { Location } from "./Location";
 import { EnterMineAndDigForNugget } from "./EnterMineAndDigForNugget";
 
-export class QuenchThirst implements State {
+export class QuenchThirst implements State<Miner> {
 
     public static instance(): QuenchThirst {
         return new QuenchThirst();

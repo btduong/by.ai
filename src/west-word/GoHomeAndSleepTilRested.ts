@@ -3,7 +3,7 @@ import { Miner } from "./Miner";
 import { Location } from "./Location";
 import { EnterMineAndDigForNugget } from "./EnterMineAndDigForNugget";
 
-export class GoHomeAndSLeepTilRested implements State {
+export class GoHomeAndSLeepTilRested implements State<Miner> {
     static instance(): GoHomeAndSLeepTilRested {
         return new GoHomeAndSLeepTilRested();
     }

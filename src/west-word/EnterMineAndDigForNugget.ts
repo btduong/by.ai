@@ -4,7 +4,7 @@ import { Location } from "./Location";
 import { VisitBankAndDepositGold } from "./VisitBankAndDepositGold";
 import { QuenchThirst } from "./QuenchThirst";
 
-export class EnterMineAndDigForNugget implements State {
+export class EnterMineAndDigForNugget implements State<Miner> {
     public static instance(): EnterMineAndDigForNugget {
         return new EnterMineAndDigForNugget();
     };

@@ -10,7 +10,7 @@ export class Miner extends BaseGameEntity {
     private static MAX_THIRST_LEVEL = 5;
     private static MAX_TIREDNESS_THRESHOLD = 5;
 
-    private currentState: State;
+    private currentState: State<this>;
     private currentLocation: Location;
     private goldCarried: number;
     private moneyInBank: number;
@@ -28,7 +28,7 @@ export class Miner extends BaseGameEntity {
 
     }
 
-    changeState(newState: State) {
+    changeState(newState: State<this>) {
         if (this.currentState !== null && newState !== null) {
             this.currentState.exit(this);
             this.currentState = newState;
