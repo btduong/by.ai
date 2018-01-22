@@ -37,7 +37,7 @@ export class Miner extends BaseGameEntity {
     }
 
     update() {
-        ++this.fatigue;
+        ++this.thirst;
         if (this.currentState) {
             this.currentState.execute(this);
         }

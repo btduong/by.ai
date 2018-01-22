@@ -25,7 +25,7 @@ export class EnterMineAndDigForNugget implements State {
             miner.changeState(VisitBankAndDepositGold.instance());
         }
 
-        if (miner.thirst) {
+        if (miner.isThirsty()) {
             miner.changeState(QuenchThirst.instance());
         }
     }
