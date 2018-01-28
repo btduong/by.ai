@@ -58,5 +58,7 @@ export class StateMachine<T> {
         this.currentState.execute(this.owner);
     }
 
-
+    revertToPreviousState() {
+        this.changeState(this.previousState);
+    }
 }
