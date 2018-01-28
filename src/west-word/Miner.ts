@@ -18,7 +18,7 @@ export class Miner extends BaseGameEntity {
     private thirstLevel: number;
     private fatigue: number;
 
-    constructor(public id: number) {
+    constructor(id: number) {
         super(id);
         this.moneyInBank = 0;
         this.goldCarried = 0;
